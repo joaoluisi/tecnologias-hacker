@@ -1,0 +1,54 @@
+/* ===== Fundo padrão (branco) para TODAS as páginas ===== */
+body,
+.md-main,
+.md-content,
+.md-content__inner,
+.md-container {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+/* ===== Header sempre preto ===== */
+.md-header,
+.md-tabs {
+  background-color: #000000 !important;
+}
+
+.md-tabs__link,
+.md-header .md-tabs__link {
+  color: #00ff00 !important;
+}
+.md-tabs__link:hover,
+.md-header .md-tabs__link:hover {
+  color: #00e676 !important;
+}
+
+/* ===== HOME (index) – deixa TUDO preto, inclusive wrappers/gutters ===== */
+body[data-md-page="index"],
+body[data-md-page="index"] .md-grid,
+body[data-md-page="index"] .md-main,
+body[data-md-page="index"] .md-main__inner,
+body[data-md-page="index"] .md-content,
+body[data-md-page="index"] .md-content__inner,
+body[data-md-page="index"] .md-container {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Botões só na Home */
+body[data-md-page="index"] .md-button {
+  background-color: #00ff00 !important;
+  color: #000000 !important;
+  border: none !important;
+}
+body[data-md-page="index"] .md-button:hover {
+  background-color: #00e676 !important;
+}
+
+/* Links só na Home */
+body[data-md-page="index"] a {
+  color: #00ff00 !important;
+}
+body[data-md-page="index"] a:hover {
+  color: #00e676 !important;
+}

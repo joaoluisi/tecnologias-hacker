@@ -1,0 +1,142 @@
+/* Navbar */
+.md-header {
+  background-color: #000000 !important; /* Preto */
+}
+
+.md-header .md-tabs__link {
+  color: #00ff00 !important; /* Verde terminal */
+}
+
+.md-header .md-tabs__link:hover {
+  color: #00e676 !important; /* Verde claro no hover */
+}
+
+/* herói realmente full-bleed */
+.th-hero {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* Remove espaçamento superior e inferior apenas na home */
+body[data-md-page="index"] main.md-main {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body[data-md-page="index"] .md-content__inner {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Títulos e textos */
+h1, h2, h3, h4, h5, h6, p, span {
+  color: #ffffff !important;
+}
+
+/* Botões */
+.md-button {
+  background-color: #00ff00 !important;
+  color: #000000 !important;
+  border: none !important;
+}
+
+.md-button:hover {
+  background-color: #00e676 !important;
+}
+
+/* Botão secundário */
+.md-button--secondary {
+  background-color: transparent !important;
+  color: #00ff00 !important;
+  border: 2px solid #00ff00 !important;
+}
+
+.md-button--secondary:hover {
+  background-color: #00ff00 !important;
+  color: #000000 !important;
+}
+
+/* Barra de navegação secundária (aba verde) */
+.md-tabs {
+  background-color: #000000 !important; /* Preto */
+}
+
+.md-tabs__link {
+  color: #00ff00 !important; /* Verde terminal */
+}
+
+.md-tabs__link:hover {
+  color: #00e676 !important; /* Verde claro no hover */
+}
+
+/* ===== HOME APENAS ===== */
+
+/* preto total na home */
+.md-main { background: #000 !important; }
+
+/* tira espaçamentos que criam faixas */
+.md-main__inner { padding-top: 0 !important; }
+.md-content       { margin-top: 0 !important; background: #000 !important; }
+.md-content__inner { margin: 0 !important; padding: 0 !important; background: #000 !important; }
+
+/* remove borda do rodapé */
+.md-footer { border-top: 0 !important; }
+
+/* ajuste fino pra encostar no topo/rodapé */
+.th-hero { 
+  margin-top: -0.5rem !important; 
+  margin-bottom: -0.5rem !important;
+}
+
+/* (opcional) navbar preta e abas verdes na home */
+.md-header { background-color: #000 !important; }
+.md-tabs   { background-color: #000 !important; }
+.md-header .md-tabs__link,
+.md-tabs__link { color: #00ff00 !important; }
+.md-header .md-tabs__link:hover,
+.md-tabs__link:hover { color: #00e676 !important; }
+
+/* textos/brancos na home */
+h1, h2, h3, h4, h5, h6, p, span { color: #fff !important; }
+
+/* botões */
+.md-button { background-color: #00ff00 !important; color: #000 !important; }
+.md-button:hover { background-color: #00e676 !important; }
+.md-button--secondary {
+  background-color: transparent !important;
+  color: #00ff00 !important;
+  border: 2px solid #00ff00 !important;
+}
+.md-button--secondary:hover { background-color: #00ff00 !important; color: #000 !important; }
+
+/* Ajuste do tamanho da imagem no herói */
+.th-hero__art img {
+  max-width: 120%;   /* muda para 50%, 40%, etc. conforme o tamanho desejado */
+  height: auto;     /* mantém a proporção */
+  display: block;
+  margin: 0 auto;   /* centraliza caso precise */
+}
+/* Deixa texto e imagem lado a lado */
+.th-hero__inner {
+  display: flex;
+  align-items: center;      /* centraliza verticalmente */
+  justify-content: space-between; /* separa o texto e a imagem */
+  gap: 2rem;                /* espaço entre os dois */
+}
+/* Área do texto */
+.th-hero__text {
+  flex: 1;                  /* ocupa o espaço restante */
+}
+/* Área da imagem */
+.th-hero__art {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* joga a imagem pra direita */
+}
