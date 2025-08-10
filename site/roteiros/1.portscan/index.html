@@ -1,0 +1,1233 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/roteiros/1.portscan/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../tutoriais/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Roteiro 1 Port Scan - Tecnologias Hacker – 2025/2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.css">
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#roteiro-1-escaneamento-de-portas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tecnologias Hacker – 2025/2" class="md-header__button md-logo" aria-label="Tecnologias Hacker – 2025/2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tecnologias Hacker – 2025/2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Roteiro 1 Port Scan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/joaoluisi/tecnologias-hacker" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joaoluisi/tecnologias-hacker
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Roteiros
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutoriais/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tutoriais
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plano/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plano de Aula
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ferramentas/nmap/" class="md-tabs__link">
+          
+  
+  
+  Ferramentas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tecnologias Hacker – 2025/2" class="md-nav__button md-logo" aria-label="Tecnologias Hacker – 2025/2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    Tecnologias Hacker – 2025/2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/joaoluisi/tecnologias-hacker" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joaoluisi/tecnologias-hacker
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Roteiros
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Roteiros
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Orientações Gerais dos Roteiros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Roteiro 1 Port Scan
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roteiro 1 Port Scan
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#antes-de-comecarmos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Antes de começarmos...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disclaimer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologias-de-pentest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologias de Pentest
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metodologias de Pentest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nist-sp-800-115" class="md-nav__link">
+    <span class="md-ellipsis">
+      NIST SP 800-115
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISSAF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osstmm-open-source-security-testing-methodology-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSSTMM (Open Source Security Testing Methodology Manual)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#owasp-open-web-application-security-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      OWASP (Open Web Application Security Project)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducao-ao-escaneamento-de-portas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução ao Escaneamento de Portas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparacao-do-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparação do Ambiente
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparação do Ambiente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-no-virtualbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração no VirtualBox
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarefa-desenvolvimento-de-um-port-scanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarefa – Desenvolvimento de um Port Scanner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tarefa – Desenvolvimento de um Port Scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisitos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutoriais/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutoriais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plano de Aula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Ferramentas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NMAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#antes-de-comecarmos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Antes de começarmos...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disclaimer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologias-de-pentest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologias de Pentest
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metodologias de Pentest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nist-sp-800-115" class="md-nav__link">
+    <span class="md-ellipsis">
+      NIST SP 800-115
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISSAF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osstmm-open-source-security-testing-methodology-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSSTMM (Open Source Security Testing Methodology Manual)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#owasp-open-web-application-security-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      OWASP (Open Web Application Security Project)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducao-ao-escaneamento-de-portas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução ao Escaneamento de Portas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparacao-do-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparação do Ambiente
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparação do Ambiente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-no-virtualbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração no VirtualBox
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nmap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarefa-desenvolvimento-de-um-port-scanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarefa – Desenvolvimento de um Port Scanner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tarefa – Desenvolvimento de um Port Scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisitos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="roteiro-1-escaneamento-de-portas">Roteiro 1 – Escaneamento de Portas</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Desenvolver uma aplicação que realize o escaneamento de portas de comunicação de um destino por meio de técnicas de escaneamento de portas de rede.</p>
+<p><strong>Carga horária:</strong> Aproximadamente 4 horas<br />
+<strong>Prazo para entrega:</strong> xx/xx/2025</p>
+<hr />
+<h2 id="antes-de-comecarmos">Antes de começarmos...</h2>
+<p>Os desafios deste roteiro serão conduzidos em vários momentos por meio de imagens de máquinas virtuais que deverão ser executadas com o player gratuito <a href="https://www.virtualbox.org/">VirtualBox</a>.</p>
+<p>As ferramentas e scripts para a execução dos testes poderão ser instaladas no sistema operacional pessoal ou executadas por meio de outra máquina virtual com a distribuição <a href="https://www.kali.org/downloads/">Kali Linux</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Dica</p>
+<p>Este roteiro é organizado em atividades individuais. Atenção às datas dos entregáveis.</p>
+</div>
+<hr />
+<h2 id="disclaimer">Disclaimer</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A disciplina <strong>Tecnologias Hacker</strong> proporciona aos alunos a experiência de testar e explorar ambientes computacionais por meio de ferramentas e scripts reais, <strong>exclusivamente para fins educacionais</strong>.  </p>
+</div>
+<p>Essas técnicas <strong>não devem</strong> ser utilizadas fora do ambiente controlado sem autorização expressa do responsável pelo sistema ou rede.</p>
+<hr />
+<h2 id="getting-started">Getting Started</h2>
+<p>O termo <em>Hacker</em> é muitas vezes interpretado de forma equivocada.<br />
+No contexto da informática, <strong>Hacker</strong> é a pessoa que analisa, questiona, modifica e testa limites de arquitetura e segurança de dispositivos e softwares.</p>
+<p>Já o <strong>Cracker</strong> aplica esse conhecimento com intenção maliciosa.<br />
+Um Hacker pode contribuir para a evolução tecnológica, desenvolver e melhorar sistemas, além de compartilhar conhecimento em segurança.</p>
+<p>Pentest é o processo de analisar o nível de segurança de um sistema ou rede sob a perspectiva de um invasor, simulando ataques reais para identificar riscos e falhas.</p>
+<blockquote>
+<p>“A simulação de ataques reais para avaliar os riscos associados a potenciais brechas de segurança.” — <em>Georgia Weidman</em></p>
+</blockquote>
+<p>Uma metodologia ajuda a organizar o processo, permitindo conhecer:</p>
+<ul>
+<li>Localização do alvo</li>
+<li>Endereço IP</li>
+<li>Sistema operacional</li>
+<li>Serviços em execução</li>
+<li>Versões dos softwares</li>
+</ul>
+<hr />
+<h2 id="metodologias-de-pentest">Metodologias de Pentest</h2>
+<h3 id="nist-sp-800-115">NIST SP 800-115</h3>
+<p>Tem como objetivo orientar no planejamento tanto na aplicação quanto na análise dos testes. Esta metodologia especifica como as diferentes técnicas devem ser utilizadas para que os testes sejam efetuados com precisão. É considerada um dos melhores documentos e é a mais adotada por profissionais e consultorias de segurança.</p>
+<p>Ela é dividida em 7 etapas:</p>
+<ol>
+<li><strong>Visão geral dos exames:</strong> focada em 3 métodos teste, exame e entrevista.</li>
+<li><strong>Revisão de técnicas:</strong> esta parte discute as técnicas utilizadas para descobrir as vulnerabilidades utilizando exames passivos.</li>
+<li><strong>Identificação de serviços e portas:</strong> tem como objetivo identificar serviços em atividade (e suas portas utilizadas) para verificar possíveis vulnerabilidades.</li>
+<li><strong>Validação de vulnerabilidades:</strong> utiliza os dados obtidos na sessão anterior para explorar a existencia de possíveis vulnerabilidades.</li>
+<li><strong>Planejamento das avaliações:</strong> abordagem da melhor orientação para que possa ser criada as políticas de testes.</li>
+<li><strong>Execução:</strong> neste ponto são destacados pontos chaves na fase de execução onde são fornecidas recomendações referente a avaliação.</li>
+<li><strong>Atividades pós-testes:</strong> na etapa final são fornecidas para a organização, maneiras de transformar as descobertas em formas de segurança, assim fornecendo ações contra as vulnerabilidades encontradas.</li>
+</ol>
+<p>Esta metodologia não é tão detalhada no ponto de vista técnico como as demais, mas fornece informações suficientes para a realização de um teste de penetração.</p>
+<p>Para mais informações leia a <a href="https://csrc.nist.gov/pubs/sp/800/115/final?">documentação oficial</a>.</p>
+<h3 id="issaf">ISSAF</h3>
+<p>Proposta pelo <strong>OISSG</strong> (Open Information Systems Security Group), é a mais volumosa metodologia disponível e divide-se em:</p>
+<ol>
+<li><strong>Planejamento e preparação:</strong> fase onde são trocadas informações iniciais para planejamento e preparação dos testes para avaliação do sistema.</li>
+<li><strong>Avaliação:</strong> realiação da coleta de informações, mapeamento de rede, identificação de vulnerabilidades no sistema, ou seja, o Pentest analisa todo o sistema que está sendo avaliado e corrige os problemas detectados.</li>
+<li><strong>Relatórios e limpeza:</strong> na fase final é apresentado o relatório de todos os testes executados, mas se algum erro ou vulnerabilidade foram encontrados durante os testes, devem ser avisados antes do término da avaliação do sistema e geração dos relatórios.</li>
+</ol>
+<p>Esta medotologia abrange:</p>
+<ul>
+<li>Segurança de Rede</li>
+<li>Segurança de Host</li>
+<li>Segurança de Aplicação</li>
+<li>Segurança de Banco de Dados</li>
+</ul>
+<h3 id="osstmm-open-source-security-testing-methodology-manual">OSSTMM (Open Source Security Testing Methodology Manual)</h3>
+<p>Proposta pela <strong>ISECOM</strong> (Institute for Security and Open Methodologies). Suas definições são constituídas a partir do escopo, que representa todo o ambiente de segurança operacional possível para qualquer interação com qualquer ativo. O principal objetivo dessa metodologia é caracterizar a segurança operacional através dos exames e correlação dos resultados dos testes de uma maneira consistente. </p>
+<p>Os canais de interação OSSTMM são:</p>
+<ul>
+<li>Humano</li>
+<li>Físico</li>
+<li>Wireless</li>
+<li>Telecomunicações</li>
+<li>Rede de dados</li>
+</ul>
+<h3 id="owasp-open-web-application-security-project">OWASP (Open Web Application Security Project)</h3>
+<p>Documentação oficial <a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP</a>.</p>
+<p>Esta metodologia tem um foco maior em aplicações web.</p>
+<p>O OWASP segue alguns princípios para a execução dos testes: não acreditar em milagres, pensar estrategicamente, testar cedo e com regularidade, entender o escopo da segurança, desenvolver a mentalidade correta, entender o objetivo, usar as ferramentas corretas, atentar-se aos detalhes e documentar os resultados.</p>
+<p>O OWASP disponibiliza diversos materiais para o desenvolvimento seguro de aplicações e orientações para mitigar vulnerabilidades. Seu documento é organizado em 12 categorias para o teste de penetração:</p>
+<ol>
+<li>Introdução e objetivos</li>
+<li>Coleta de informações</li>
+<li>Teste de configuração</li>
+<li>Teste de identidade</li>
+<li>Teste de autenticação</li>
+<li>Teste de autorização</li>
+<li>Teste de sessão</li>
+<li>Validação de entrada</li>
+<li>Manipulação de erros</li>
+<li>Criptografia</li>
+<li>Lógica de negócios</li>
+<li>Teste do lado cliente</li>
+</ol>
+<p>Estes testes podem ser realizados por diferentes maneiras:</p>
+<ul>
+<li><strong>Caixa Branca:</strong> Em que o hacker conhece bem as características do sistema (sistemas, equipamentos, protocolos, etc.).</li>
+<li><strong>Caixa Cinza:</strong> Em que se possui informações de partes do ambiente a ser explorado.</li>
+<li><strong>Caixa Preta:</strong> Em que não é fornecido nenhuma informação do ambiente alvo.</li>
+</ul>
+<hr />
+<h2 id="introducao-ao-escaneamento-de-portas">Introdução ao Escaneamento de Portas</h2>
+<p>As ferramentas de escaneamento permitem a descoberta de vulnerabilidades em ambientes computacionais, entre outras funcionalidades. Os escaneadores estão disponíveis como ferramentas especializadas projetadas apenas para “escanear” vulnerabilidades em um host, como por exemplo determinar se suas portas de comunicação estão sendo ou não usadas. São extremamente úteis no processo de descoberta e reconhecimento do alvo em um PENTEST, bem como, para a administração de ambientes computacionais. Muitas portas estão associadas a serviços específicos de rede. Para isso, é fundamental o conhecimento sobre sockets e dos protocolos de transporte, bem como, suas características como cabeçalho e flags.</p>
+<p>Existem basicamente três tipos de escaneamento:</p>
+<ul>
+<li><strong>Port scan:</strong> detecta portas abertas</li>
+<li><strong>Network scan:</strong> identifica hosts ativos</li>
+<li><strong>Vulnerability scan:</strong> busca falhas conhecidas</li>
+</ul>
+<p>Neste roteiro vamos trabalhar com o port scanner. Port scanner é a técnica mais popular e usada por Hackers/Crackers para descobrir serviços vulneráveis em um sistema e o NMAP a mais popular das ferramentas.</p>
+<p>Ferramenta popular: <strong>Nmap</strong></p>
+<hr />
+<h2 id="preparacao-do-ambiente">Preparação do Ambiente</h2>
+<h3 id="configuracao-no-virtualbox">Configuração no VirtualBox</h3>
+<ol>
+<li><strong>Instalar Kali Linux</strong></li>
+<li><strong>Configurar adaptador em modo <em>Bridge</em>:</strong> Isso permitirá que o Kali receba um endereço IP na mesma faixa da rede do sistema operacional hospedeiro.</li>
+<li><strong>Verificar IP do Kali com:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>ip<span class="w"> </span>a
+</code></pre></div>
+<p>Este comando listará os adaptadores de rede e seus respectivos endereços IP. Anote o IP atribuído à interface de rede principal (normalmente eth0 ou wlan0).</p>
+<p>Agora, no sistema operacional hospedeiro, abra o terminal ou prompt de comando e verifique o seu próprio IP.</p>
+<ul>
+<li>Windows (CMD ou Powershell): <strong>ipconfig</strong></li>
+<li>GNU/Linux/Mac OS: <strong>ifconfig ou ip a</strong></li>
+</ul>
+<p><strong>4. Testar conectividade:</strong></p>
+<p>Antes de realizar o escaneamento de portas, garanta que o Kali consegue alcançar a máquina hospedeira usando o comando:</p>
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span>IP_DA_MAQUINA_HOSPEDEIRA
+</code></pre></div>
+<p><strong>Lembre-se de desabilitar o firewall, para o caso do Windows ser seu sistema operacional</strong>.</p>
+<hr />
+<h2 id="nmap">Nmap</h2>
+<div class="admonition info">
+<p class="admonition-title">Nota sobre o uso do Nmap</p>
+<p>A descrição detalhada do funcionamento e dos comandos do <strong>Nmap</strong> foi movida para a seção <a href="../../ferramentas/nmap/"><strong>Ferramentas</strong></a> deste material, com o objetivo de centralizar as instruções e guias de utilização em um único local, facilitando futuras consultas e atualizações.  </p>
+<p>O <strong>Nmap</strong> será uma ferramenta fundamental neste roteiro e continuará a ser utilizada ao longo de todo o semestre em diferentes atividades e desafios.  </p>
+<p>Aqui, ele será mencionado apenas como recurso necessário para a execução das tarefas, e seu uso prático deverá seguir as orientações presentes na seção <a href="../../ferramentas/nmap/"><strong>Ferramentas</strong></a>.</p>
+</div>
+<hr />
+<h2 id="tarefa-desenvolvimento-de-um-port-scanner">Tarefa – Desenvolvimento de um Port Scanner</h2>
+<h3 id="descricao">Descrição</h3>
+<p>Desenvolvimento de uma aplicação que realize o escaneamento de portas de comunicação de um destino por meio de bibliotecas (libs) de desenvolvimento Python.</p>
+<h3 id="requisitos">Requisitos</h3>
+<p>Você deverá realizar uma pesquisa dos módulos e bibliotecas que permitem o desenvolvimento de uma ferramenta para o escaneamento de portas TCP de acordo com as premissas a seguir:</p>
+<ul>
+<li>Desenvolver em <strong>Python</strong></li>
+<li>Interface amigável (1 ponto)</li>
+<li>Permitir o escaneamento de um host ou uma rede (1 ponto)</li>
+<li>Permitir inserir o range (intervalo) de portas a serem escaneadas (1 ponto)</li>
+<li>Além da função de escaneamento, espera-se que seu código relacione as portas <em>Well-Known</em> e seus serviços associados e apresente em sua saída (imprimir) o número da porta e o nome do serviço associado. (2 pontos)</li>
+<li>Detecção de estado das portas (1 ponto)</li>
+<li>Escaneamento UDP (2 pontos)</li>
+<li>Banner grabbing para SO (2 pontos)</li>
+<li>Suporte a IPv6 (2 pontos)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Dica</p>
+<p>Observe que o roteiro pode alcançar até 12 pontos, ou seja, você pode fazer a seleção de funções até atingir os 10 pontos.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pontos adicionais não serão acumulados para os próximos roteiros.</p>
+</div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://insper.edu.br" target="_blank" rel="noopener" title="insper.edu.br" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M271.9 20.2c-9.8-5.6-21.9-5.6-31.8 0l-224 128c-12.6 7.2-18.8 22-15.1 36S17.5 208 32 208h32v208l-51.2 38.4C4.7 460.4 0 469.9 0 480c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32 0-10.1-4.7-19.6-12.8-25.6L448 416V208h32c14.5 0 27.2-9.8 30.9-23.8s-2.5-28.8-15.1-36l-224-128zM400 208v208h-64V208zm-112 0v208h-64V208zm-112 0v208h-64V208zm80-112a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.social", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

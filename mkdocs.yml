@@ -43,7 +43,8 @@ nav:
   - Roteiros:
       - Orientações Gerais dos Roteiros: roteiros/index.md
       - Roteiro 1 Port Scan: roteiros/1.portscan.md
-  - Tutoriais: tutoriais/index.md
+  - Aulas:
+      - Introdução: aulas/introducao.md
   - Plano de Aula: plano/index.md
   #- Projeto: projeto/index.md
   - Ferramentas:

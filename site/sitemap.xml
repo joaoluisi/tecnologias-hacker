@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://joaoluisi.github.io/tecnologias-hacker/</loc>
-         <lastmod>2025-08-08</lastmod>
+         <lastmod>2025-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://joaoluisi.github.io/tecnologias-hacker/conteudo/</loc>
+         <lastmod>2025-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://joaoluisi.github.io/tecnologias-hacker/ferramentas/nmap/</loc>
+         <lastmod>2025-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://joaoluisi.github.io/tecnologias-hacker/plano/</loc>
+         <lastmod>2025-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://joaoluisi.github.io/tecnologias-hacker/projeto/</loc>
+         <lastmod>2025-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://joaoluisi.github.io/tecnologias-hacker/roteiros/</loc>
+         <lastmod>2025-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://joaoluisi.github.io/tecnologias-hacker/roteiros/1.portscan/</loc>
+         <lastmod>2025-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://joaoluisi.github.io/tecnologias-hacker/tutoriais/</loc>
+         <lastmod>2025-08-10</lastmod>
     </url>
 </urlset>
