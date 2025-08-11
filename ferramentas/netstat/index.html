@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/ferramentas/nmap/">
+        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/ferramentas/netstat/">
       
       
-        <link rel="prev" href="../diagnostico/">
+        <link rel="prev" href="../nmap/">
       
       
-        <link rel="next" href="../netstat/">
+        <link rel="next" href="../tcpdump/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>NMAP - Tecnologias Hacker – 2025/2</title>
+        <title>Netstat - Tecnologias Hacker – 2025/2</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-skip">
+        <a href="#reconhecendo-o-alvo-com-o-netstat" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NMAP
+              Netstat
             
           </span>
         </div>
@@ -655,6 +655,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NMAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -670,7 +693,7 @@
   
   
   <span class="md-ellipsis">
-    NMAP
+    Netstat
     
   </span>
   
@@ -683,7 +706,7 @@
   
   
   <span class="md-ellipsis">
-    NMAP
+    Netstat
     
   </span>
   
@@ -704,102 +727,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-nav__link">
+  <a href="#reconhecendo-o-alvo-com-o-netstat" class="md-nav__link">
     <span class="md-ellipsis">
-      Reconhecendo o alvo com o NMAP
+      Reconhecendo o alvo com o Netstat
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#alguns-exemplos-de-comandos-nmap" class="md-nav__link">
+  <a href="#principais-usos" class="md-nav__link">
     <span class="md-ellipsis">
-      Alguns exemplos de comandos nmap
+      Principais usos
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Alguns exemplos de comandos nmap">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-1-descobrindo-as-portas-abertas-de-um-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 1: Descobrindo as portas abertas de um host
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 2: Descobrindo as versões dos serviços em execução
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-3-descobrindo-o-sistema-operacional" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 3: Descobrindo o Sistema Operacional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-4-selecionando-as-portas-a-serem-escaneadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 4: Selecionando as portas a serem escaneadas
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#nmap-scripting-engine-nse" class="md-nav__link">
+  <a href="#sintaxe-basica" class="md-nav__link">
     <span class="md-ellipsis">
-      Nmap Scripting Engine (NSE)
+      Sintaxe básica
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Nmap Scripting Engine (NSE)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#para-descoberta-de-vulnerabilidades" class="md-nav__link">
-    <span class="md-ellipsis">
-      Para descoberta de vulnerabilidades
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encontrar-malware-ou-backdoor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encontrar malware ou backdoor
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cheatsheet-nmap" class="md-nav__link">
+  <a href="#exemplos-de-uso" class="md-nav__link">
     <span class="md-ellipsis">
-      Cheatsheet NMAP
+      Exemplos de uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observacao-sobre-sistemas-modernos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observação sobre sistemas modernos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
     </span>
   </a>
   
@@ -809,29 +784,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../netstat/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Netstat
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -915,102 +867,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-nav__link">
+  <a href="#reconhecendo-o-alvo-com-o-netstat" class="md-nav__link">
     <span class="md-ellipsis">
-      Reconhecendo o alvo com o NMAP
+      Reconhecendo o alvo com o Netstat
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#alguns-exemplos-de-comandos-nmap" class="md-nav__link">
+  <a href="#principais-usos" class="md-nav__link">
     <span class="md-ellipsis">
-      Alguns exemplos de comandos nmap
+      Principais usos
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Alguns exemplos de comandos nmap">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-1-descobrindo-as-portas-abertas-de-um-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 1: Descobrindo as portas abertas de um host
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 2: Descobrindo as versões dos serviços em execução
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-3-descobrindo-o-sistema-operacional" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 3: Descobrindo o Sistema Operacional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-4-selecionando-as-portas-a-serem-escaneadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 4: Selecionando as portas a serem escaneadas
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#nmap-scripting-engine-nse" class="md-nav__link">
+  <a href="#sintaxe-basica" class="md-nav__link">
     <span class="md-ellipsis">
-      Nmap Scripting Engine (NSE)
+      Sintaxe básica
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Nmap Scripting Engine (NSE)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#para-descoberta-de-vulnerabilidades" class="md-nav__link">
-    <span class="md-ellipsis">
-      Para descoberta de vulnerabilidades
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encontrar-malware-ou-backdoor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encontrar malware ou backdoor
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cheatsheet-nmap" class="md-nav__link">
+  <a href="#exemplos-de-uso" class="md-nav__link">
     <span class="md-ellipsis">
-      Cheatsheet NMAP
+      Exemplos de uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observacao-sobre-sistemas-modernos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observação sobre sistemas modernos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
     </span>
   </a>
   
@@ -1035,69 +939,71 @@
   
 
 
-  <h1>NMAP</h1>
+  <h1>Netstat</h1>
 
-<h2 id="reconhecendo-o-alvo-com-o-nmap"><strong>Reconhecendo o alvo com o NMAP</strong></h2>
-<p>Pode ser considerada uma das ferramentas mais completas para realizar varredura em redes, pois disponibiliza um grande número de opções, possibilitando realizarmos diversas varreduras em busca de vulnerabilidades e características do alvo. Essa ferramenta possui, inclusive, opções que permitem burlar sistemas de proteção, como IDS/IPS e Firewall, cujas regras poderiam bloquear ou detectar varreduras não permitidas.</p>
-<p>Ela localiza e identifica todas as portas TCP e UDP disponíveis em um host, tentando determinar qual o serviço que está “escutando” em cada porta e é capaz de identificar o tipo de sistema operacional em execução. O Nmap é visto como uma ferramenta de segurança, usada para descobrir “brechas” em sistemas, ajudando na tarefa de monitoração e gerenciamento da rede e identificação de serviços rodando em servidores.</p>
-<p><strong>Sintaxe:</strong></p>
-<p><strong>nmap [Scan Type(s)] [Options] {target specification}</strong></p>
-<p><img alt="nmap1" src="../../assets/images/ferramentas/nmap1.png" /></p>
-<p>No exemplo da figura ele foi executado de forma simples, apenas indicando o IP do alvo. Como resposta é exibido as portas e serviços disponíveis no host.</p>
-<p>Usando o modo "verbose" "-v" para exibir mais informações do alvo. Utilize "-vv" para ter uma saída com informações mais detalhadas.</p>
-<p><img alt="nmap2" src="../../assets/images/ferramentas/nmap2.png" /></p>
+<h2 id="reconhecendo-o-alvo-com-o-netstat"><strong>Reconhecendo o alvo com o Netstat</strong></h2>
+<p>O <strong>netstat</strong> (<em>network statistics</em>) é uma ferramenta de linha de comando utilizada para exibir informações sobre conexões de rede, tabelas de roteamento e estatísticas de interface.<br />
+É amplamente usada para monitorar a atividade de rede, diagnosticar problemas de conectividade e detectar conexões suspeitas.</p>
 <hr />
-<h2 id="alguns-exemplos-de-comandos-nmap"><strong>Alguns exemplos de comandos nmap</strong></h2>
-<p>Primeiramente, descubra qual o número IP de sua máquina hospedeira. Lembre-se que a interface virtual do seu Kali Linux deverá estar configurada em modo "Bridge".</p>
-<p>Para efeitos de exemplo, assume-se que o IP da máquina hospedeira seja <strong>192.168.68.109</strong>. Lembre de alterá-lo para o número de sua máquina quando for executar algum comando.</p>
-<h3 id="exemplo-1-descobrindo-as-portas-abertas-de-um-host"><strong>Exemplo 1: Descobrindo as portas abertas de um host</strong></h3>
-<p>Vamos descobrir quais portas de comunicação TCP estão abertas no alvo.</p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sT<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap3" src="../../assets/images/ferramentas/nmap3.png" /></p>
-<p>A opção <strong><code>-s</code></strong> no script é o comando para o escaneamento. Já a opção <strong><code>T</code></strong> indica o escaneamento de portas TCP. Caso seja necessário escanear as portas UDP, altere o <strong><code>T</code></strong> para <strong><code>U</code></strong>.</p>
-<p>A saída do comando apresentada na figura exibe 3 colunas:<br />
-1. Número da porta aberta<br />
-2. Estado da porta<br />
-3. Possível serviço que está sendo executado nesta porta  </p>
-<p>Estado das portas:</p>
+<h2 id="principais-usos">Principais usos</h2>
 <ul>
-<li><strong>Aberta (open)</strong> – Está ativamente aceitando conexões TCP ou pacotes UDP nesta porta.</li>
-<li><strong>Fechada (closed)</strong> – Uma porta fechada está acessível (recebe e responde a pacotes de sondagens do Nmap), mas não há nenhuma aplicação ouvindo nela.</li>
-<li><strong>Filtrada (filtered)</strong> – O Nmap não consegue determinar se a porta está aberta porque uma filtragem de pacotes impede que as sondagens alcancem a porta.</li>
+<li>Listar conexões TCP e UDP ativas.</li>
+<li>Verificar quais portas estão em escuta (<em>listening</em>).</li>
+<li>Identificar o PID e o nome do processo associado a cada conexão.</li>
+<li>Visualizar a tabela de roteamento.</li>
+<li>Monitorar estatísticas de protocolos de rede.</li>
 </ul>
-<h3 id="exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao"><strong>Exemplo 2: Descobrindo as versões dos serviços em execução</strong></h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap4" src="../../assets/images/ferramentas/nmap4.png" /></p>
-<p>Observe que na saída do comando é acrescentada uma quarta coluna, onde a versão do serviço em execução é apresentado.</p>
-<h3 id="exemplo-3-descobrindo-o-sistema-operacional"><strong>Exemplo 3: Descobrindo o Sistema Operacional</strong></h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-O<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap5" src="../../assets/images/ferramentas/nmap5.png" /></p>
-<p>A opção "-O" tenta descobrir qual a versão do sistema operacional do host alvo.</p>
-<h3 id="exemplo-4-selecionando-as-portas-a-serem-escaneadas"><strong>Exemplo 4: Selecionando as portas a serem escaneadas</strong></h3>
-<p>É possível escolher uma ou várias portas a serem escaneadas. Para isso, usa-se a opção "-p". No primeiro exemplo vamos escanear apenas a porta 80, já no segundo exemplo iremos escanear as portas 445 e 22.</p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap6" src="../../assets/images/ferramentas/nmap6.png" /></p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">445</span>,22<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap7" src="../../assets/images/ferramentas/nmap7.png" /></p>
 <hr />
-<h2 id="nmap-scripting-engine-nse">Nmap Scripting Engine (NSE)</h2>
-<p>Oferece um conjunto totalmente novo de recursos e confere uma nova dimensão para o Nmap.<br />
-Permite que o Nmap conclua uma série de tarefas, incluindo <em>scanning</em> de vulnerabilidades, detecção de <em>backdoors</em> e, em alguns casos, a exploração de vulnerabilidades.</p>
-<p>A seguir, são apresentados alguns exemplos e exercícios para a prática do Nmap:</p>
-<h3 id="para-descoberta-de-vulnerabilidades">Para descoberta de vulnerabilidades</h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span>vuln<span class="w"> </span><span class="m">192</span>.168.68.109
+<h2 id="sintaxe-basica">Sintaxe básica</h2>
+<div class="highlight"><pre><span></span><code>netstat<span class="w"> </span><span class="o">[</span>opções<span class="o">]</span>
 </code></pre></div>
-<h3 id="encontrar-malware-ou-backdoor">Encontrar malware ou backdoor</h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-v<span class="w"> </span>--script<span class="w"> </span>malware<span class="w"> </span><span class="m">192</span>.168.68.109
+<p>-a → Mostra todas as conexões e portas em escuta.</p>
+<p>-t → Mostra apenas conexões TCP.</p>
+<p>-u → Mostra apenas conexões UDP.</p>
+<p>-n → Exibe endereços e portas no formato numérico (não resolve nomes).</p>
+<p>-p → Mostra o PID e o nome do processo associado a cada conexão.</p>
+<p>-r → Exibe a tabela de roteamento.</p>
+<p>-s → Mostra estatísticas por protocolo.</p>
+<hr />
+<h2 id="exemplos-de-uso">Exemplos de uso</h2>
+<p>Mostrar todas as conexões TCP  </p>
+<div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-at
+</code></pre></div>
+<p>Mostrar conexões TCP e UDP em formato numérico  </p>
+<div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-atun
+</code></pre></div>
+<p>Listar conexões com PID e nome do processo</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>netstat<span class="w"> </span>-tulpn
+</code></pre></div>
+<p>Exibir tabela de roteamento</p>
+<div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-r
+</code></pre></div>
+<p>Estatísticas de protocolos</p>
+<div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-s
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica</p>
+<p>Filtrar resultados por porta:<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>netstat<span class="w"> </span>-tulpn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">80</span>
+</code></pre></div>
+Monitorar conexões em tempo real:
+<div class="highlight"><pre><span></span><code>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="s1">&#39;netstat -atnp&#39;</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h2 id="observacao-sobre-sistemas-modernos">Observação sobre sistemas modernos</h2>
+<p>Em distribuições Linux mais recentes, o netstat foi substituído pelo comando ss, que oferece funcionalidades similares com melhor desempenho.</p>
+<p>Exemplo equivalente:  </p>
+<div class="highlight"><pre><span></span><code>ss<span class="w"> </span>-atnp
 </code></pre></div>
 <hr />
-<h2 id="cheatsheet-nmap">Cheatsheet NMAP</h2>
-<p><img alt="nmap8" src="../../assets/images/ferramentas/Nmap-Cheat-Sheet-1.jpg" /></p>
+<h2 id="referencias">Referências</h2>
+<ul>
+<li>Comando<br />
+<div class="highlight"><pre><span></span><code>man<span class="w"> </span>netstat
+</code></pre></div></li>
+<li><a href="https://linux.die.net/man/8/netstat">Documentação do netstat no Linux</a></li>
+</ul>
 
 
 

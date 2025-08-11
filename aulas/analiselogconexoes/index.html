@@ -1,0 +1,1727 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/aulas/analiselogconexoes/">
+      
+      
+        <link rel="prev" href="../introducao/">
+      
+      
+        <link rel="next" href="../../plano/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Análise de logs e conexões - Tecnologias Hacker – 2025/2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.css">
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fundamentos-de-comunicacao-de-dados" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tecnologias Hacker – 2025/2" class="md-header__button md-logo" aria-label="Tecnologias Hacker – 2025/2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tecnologias Hacker – 2025/2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Análise de logs e conexões
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/joaoluisi/tecnologias-hacker" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joaoluisi/tecnologias-hacker
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../roteiros/" class="md-tabs__link">
+          
+  
+  
+  Roteiros
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../introducao/" class="md-tabs__link">
+          
+  
+  
+  Aulas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plano/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plano de Aula
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ferramentas/diagnostico/" class="md-tabs__link">
+          
+  
+  
+  Ferramentas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tecnologias Hacker – 2025/2" class="md-nav__button md-logo" aria-label="Tecnologias Hacker – 2025/2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    Tecnologias Hacker – 2025/2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/joaoluisi/tecnologias-hacker" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joaoluisi/tecnologias-hacker
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Roteiros
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Roteiros
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roteiros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Orientações Gerais dos Roteiros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roteiros/1.portscan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roteiro 1 Port Scan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Aulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Análise de logs e conexões
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise de logs e conexões
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encapsulamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocolo-arp-address-resolution-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocolo ARP (Address Resolution Protocol)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mac-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAC Address
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizando-o-cache-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualizando o Cache ARP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descobrindo-maquinas-na-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descobrindo máquinas na rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ataque-arp-spoofing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ataque ARP Spoofing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executando-arp-spoofing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executando ARP Spoofing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relembrando-as-caracteristicas-do-tcp-e-conexoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relembrando as características do TCP e Conexões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-do-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características do TCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤝 Three-Way Handshake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encerramento-de-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛑 Encerramento de Conexão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portas-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portas TCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sockets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sockets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualizacao-de-conexoes-e-sockets-netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Visualização de Conexões e Sockets – netstat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controle-e-monitoramento-de-portas-com-tcpdump" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controle e Monitoramento de Portas com tcpdump
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controle e Monitoramento de Portas com tcpdump">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-capturar-pacotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que capturar pacotes?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o-papel-do-tcpdump" class="md-nav__link">
+    <span class="md-ellipsis">
+      O papel do tcpdump
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao-geral-de-capturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretação geral de capturas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacoes-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicações práticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conexao-com-proximos-topicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com próximos tópicos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analise-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Análise de Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Análise de Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-que-sao-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que são logs?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importancia-na-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importância na Segurança da Informação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localizacao-dos-logs-no-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Localização dos logs no Linux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretando-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretando logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conexao-com-outras-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com outras práticas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-de-ataques-em-logs-de-servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos de ataques em logs de servidor web
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plano de Aula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Ferramentas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/diagnostico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diagnóstico de rede
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NMAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/netstat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Netstat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/tcpdump/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TCP dump
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/netdiscover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Netdiscover
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encapsulamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocolo-arp-address-resolution-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocolo ARP (Address Resolution Protocol)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mac-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAC Address
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizando-o-cache-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualizando o Cache ARP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descobrindo-maquinas-na-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descobrindo máquinas na rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ataque-arp-spoofing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ataque ARP Spoofing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executando-arp-spoofing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executando ARP Spoofing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relembrando-as-caracteristicas-do-tcp-e-conexoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relembrando as características do TCP e Conexões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-do-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características do TCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤝 Three-Way Handshake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encerramento-de-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛑 Encerramento de Conexão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portas-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portas TCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sockets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sockets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualizacao-de-conexoes-e-sockets-netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Visualização de Conexões e Sockets – netstat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controle-e-monitoramento-de-portas-com-tcpdump" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controle e Monitoramento de Portas com tcpdump
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controle e Monitoramento de Portas com tcpdump">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-capturar-pacotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que capturar pacotes?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o-papel-do-tcpdump" class="md-nav__link">
+    <span class="md-ellipsis">
+      O papel do tcpdump
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretacao-geral-de-capturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretação geral de capturas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacoes-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicações práticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conexao-com-proximos-topicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com próximos tópicos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analise-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Análise de Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Análise de Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-que-sao-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que são logs?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importancia-na-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importância na Segurança da Informação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localizacao-dos-logs-no-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Localização dos logs no Linux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretando-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretando logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conexao-com-outras-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com outras práticas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-de-ataques-em-logs-de-servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos de ataques em logs de servidor web
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="fundamentos-de-comunicacao-de-dados">Fundamentos de Comunicação de Dados</h1>
+<div class="admonition info">
+<p class="admonition-title">Objetivos desta parte</p>
+<ul>
+<li>Entender como funciona a comunicação em redes locais.  </li>
+<li>Conhecer protocolos e conceitos essenciais (Encapsulamento, ARP, MAC Address).  </li>
+<li>Visualizar e manipular o cache ARP.  </li>
+<li>Aprender técnicas de descoberta de hosts na rede.  </li>
+<li>Introduzir o conceito e funcionamento do ARP Spoofing.</li>
+</ul>
+</div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Ferramentas de apoio</p>
+<p>Para auxiliar no entendimento desta aula e na execução das práticas, recomendamos o uso das seguintes ferramentas: ping, traceroute, fping, arping e netdiscover.<br />
+Essas ferramentas permitem diagnosticar conectividade, mapear redes, identificar hosts ativos e complementar a análise de pacotes e logs.<br />
+Consulte a seção <a href="../../ferramentas/diagnostico/"><strong>Ferramentas</strong></a> no menu lateral para tutoriais completos de cada uma.</p>
+</div>
+<hr />
+<h2 id="encapsulamento">Encapsulamento</h2>
+<p>O <strong>encapsulamento</strong> é o processo de adicionar informações de controle (cabeçalhos e trailers) aos dados à medida que eles passam pelas camadas do modelo de rede.  </p>
+<p>Na comunicação:<br />
+1. A camada de aplicação gera os dados.<br />
+2. As camadas subsequentes adicionam informações de protocolo.<br />
+3. Na camada física, os dados são transmitidos como sinais elétricos/ópticos ou ondas de rádio.  </p>
+<p><img alt="log1" src="../../assets/images/aulas/analiselog/log1.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O diagrama mostra dados sendo encapsulados de cima para baixo no modelo de camadas (ex.: Aplicação → Transporte → Rede → Enlace → Física).</p>
+</div>
+<hr />
+<h2 id="protocolo-arp-address-resolution-protocol">Protocolo ARP (Address Resolution Protocol)</h2>
+<ul>
+<li>O <strong>ARP</strong> é usado para encontrar o <strong>endereço físico (MAC Address)</strong> correspondente a um <strong>endereço IP</strong>.</li>
+<li>Ele envia um <strong>broadcast</strong> para toda a rede local solicitando:<br />
+  “Quem tem o IP X.X.X.X?”</li>
+<li>O host que possui o IP responde com seu <strong>par IP/MAC</strong>.</li>
+</ul>
+<p><strong>Funcionamento básico:</strong><br />
+1. Host A quer se comunicar com Host B.<br />
+2. Host A envia uma requisição ARP para toda a LAN.<br />
+3. Host B responde com seu MAC Address.<br />
+4. Host A armazena o par IP/MAC no <strong>cache ARP</strong>.  </p>
+<h2 id="mac-address">MAC Address</h2>
+<ul>
+<li>Endereço físico de <strong>48 bits</strong>, geralmente representado como seis pares hexadecimais:<br />
+<code>54:8c:a0:df:c7:4f</code></li>
+<li>É único para cada interface de rede.</li>
+<li>O ARP mantém um <strong>cache</strong> para evitar broadcasts desnecessários.</li>
+<li>Ao responder um broadcast, o host solicitante também envia seu par IP/MAC para que todos atualizem seus caches.</li>
+</ul>
+<h2 id="visualizando-o-cache-arp">Visualizando o Cache ARP</h2>
+<p>Comando para visualizar:
+<div class="highlight"><pre><span></span><code>arp<span class="w"> </span>-a
+</code></pre></div></p>
+<p><img alt="log2" src="../../assets/images/aulas/analiselog/log2.png" /></p>
+<h2 id="descobrindo-maquinas-na-rede">Descobrindo máquinas na rede</h2>
+<div class="highlight"><pre><span></span><code>arp-scan<span class="w"> </span>--interface<span class="o">=</span>wlp58s0<span class="w"> </span>--localnet
+</code></pre></div>
+<p><img alt="log3" src="../../assets/images/aulas/analiselog/log3.png" /></p>
+<p>--interface → especifica a interface de rede.</p>
+<p>--localnet → escaneia toda a sub-rede local.</p>
+<div class="admonition tip">
+<p class="admonition-title">Dica</p>
+<p>Ótimo para mapear dispositivos conectados na mesma LAN.</p>
+</div>
+<hr />
+<h2 id="ataque-arp-spoofing">Ataque ARP Spoofing</h2>
+<p>Técnica de ataque que engana o cache ARP de um host. Este ataque consiste em adicionar/substituir na tabela arp da máquina alvo uma entrada que aponte um IP do alvo para o MAC Address do atacante na tabela ARP da vítima.</p>
+<p>O atacante envia respostas ARP falsas para associar seu MAC Address ao IP de outro dispositivo (ex.: gateway). É o método mais rápido de se estabelecer no meio da comunicação entre duas máquinas e interceptar as informações enviadas entre ambas.</p>
+<p>Isso permite interceptar, alterar ou bloquear o tráfego entre as vítimas.</p>
+<p><img alt="log4" src="../../assets/images/aulas/analiselog/log4.png" /></p>
+<p>Exemplo de ataque:<br />
+1. Atacante envia resposta ARP falsa ao Host A, dizendo que o IP do Gateway é o seu MAC.<br />
+2. Atacante envia resposta ARP falsa ao Gateway, dizendo que o IP do Host A é o seu MAC.<br />
+3. Agora, todo tráfego entre Host A e o Gateway passa pelo atacante.  </p>
+<h2 id="executando-arp-spoofing">Executando ARP Spoofing</h2>
+<div class="highlight"><pre><span></span><code>arpspoof<span class="w"> </span>-i<span class="w"> </span>&lt;INTERFACE&gt;<span class="w"> </span>-t<span class="w"> </span>&lt;IP_ALVO&gt;<span class="w"> </span>&lt;IP_GATEWAY&gt;
+</code></pre></div>
+<p>-i → interface de rede usada no ataque.</p>
+<p>-t → IP do alvo.</p>
+<p>Último parâmetro → IP do gateway.</p>
+<div class="admonition danger">
+<p class="admonition-title">Atenção</p>
+<ul>
+<li>Ilegal sem autorização do dono da rede.</li>
+<li>Deve ser usado apenas em ambiente de testes/laboratório.</li>
+</ul>
+</div>
+<hr />
+<h2 id="relembrando-as-caracteristicas-do-tcp-e-conexoes">Relembrando as características do TCP e Conexões</h2>
+<div class="admonition info">
+<p class="admonition-title">Objetivos desta parte</p>
+<ul>
+<li>Revisar as características do protocolo <strong>TCP</strong>.  </li>
+<li>Entender o processo de <strong>estabelecimento</strong> e <strong>finalização</strong> de conexões (Three-Way Handshake).  </li>
+<li>Compreender o conceito de <strong>portas</strong> e <strong>sockets</strong>.  </li>
+<li>Aprender a visualizar e interpretar conexões abertas no sistema.</li>
+</ul>
+</div>
+<hr />
+<h2 id="caracteristicas-do-tcp">Características do TCP</h2>
+<p><img alt="log5" src="../../assets/images/aulas/analiselog/log5.png" /></p>
+<ul>
+<li>Orientado à conexão (necessita handshake antes da troca de dados).</li>
+<li>Usa <strong>sockets</strong> para caracterizar cada conexão.</li>
+<li>Permite estabelecer parâmetros de <strong>qualidade de serviço</strong> e <strong>segurança</strong>.</li>
+<li>Negocia a conexão usando <strong>Three-Way Handshake</strong>.</li>
+<li>Possui mecanismos de:</li>
+<li><strong>Entrega ordenada</strong> de dados.</li>
+<li><strong>Detecção e retransmissão</strong> de pacotes perdidos.</li>
+<li><strong>Término negociado</strong> ou abrupto.</li>
+<li><strong>Sinalização de dados urgentes</strong>.</li>
+<li><strong>Relato de falhas de serviço</strong>.</li>
+</ul>
+<h2 id="three-way-handshake">🤝 Three-Way Handshake</h2>
+<p>Processo de <strong>início</strong> de conexão TCP:</p>
+<ol>
+<li><strong>SYN</strong> – Cliente envia pedido de conexão.</li>
+<li><strong>SYN-ACK</strong> – Servidor confirma recebimento e aceita conexão.</li>
+<li><strong>ACK</strong> – Cliente confirma e inicia troca de dados.</li>
+</ol>
+<p><img alt="log6" src="../../assets/images/aulas/analiselog/log6.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O diagrama mostra setas representando as três etapas da negociação (SYN → SYN-ACK → ACK) entre cliente e servidor.</p>
+</div>
+<h2 id="encerramento-de-conexao">🛑 Encerramento de Conexão</h2>
+<p>Pode ser:<br />
+- <strong>Negociado</strong> – com troca de mensagens FIN/ACK em ambos os lados.<br />
+- <strong>Abrupto</strong> – com envio de pacote RST.  </p>
+<p><img alt="log7" src="../../assets/images/aulas/analiselog/log7.png" /></p>
+<h2 id="portas-tcp">Portas TCP</h2>
+<p>A camada de transporte associa um identificador a cada processo de aplicação. Esse identificador é chamado de "Porta" ("port number").</p>
+<ul>
+<li>Identificadores numéricos usados para diferenciar serviços e processos.</li>
+<li>Faixa de <strong>0 a 65535</strong>:  </li>
+<li><strong>0–1023</strong>: portas conhecidas (<em>well-known ports</em>, ex.: 80 HTTP, 443 HTTPS, 22 SSH).  </li>
+<li><strong>1024–49151</strong>: portas registradas.  </li>
+<li><strong>49152–65535</strong>: portas dinâmicas/efêmeras. </li>
+</ul>
+<h2 id="sockets">Sockets</h2>
+<p>Um socket é definido pela combinação de um endereço IP e uma porta, sendo escrito sob a forma "número IP:número da porta".</p>
+<p>Um socket provê toda a informação de endereçamento que um cliente ou um servidor necessita para identificar seu parceiro na comunicação.</p>
+<ul>
+<li>Combinação <strong>IP:Porta</strong> que identifica uma conexão.</li>
+<li>Exemplo: <code>192.168.0.11:3389</code></li>
+<li>Uma conexão TCP é identificada unicamente por <strong>dois sockets</strong> (um em cada ponta). </li>
+</ul>
+<p><img alt="log8" src="../../assets/images/aulas/analiselog/log8.png" /></p>
+<hr />
+<h3 id="visualizacao-de-conexoes-e-sockets-netstat">🔍 Visualização de Conexões e Sockets – netstat</h3>
+<p><img alt="log9" src="../../assets/images/aulas/analiselog/log9.png" /></p>
+<p>Para visualizar conexões de rede e sockets ativos no sistema, você pode utilizar a ferramenta <strong>netstat</strong>, localizada na aba <a href="../../ferramentas/netstat/">"Ferramentas"</a> do curso. Ela permite identificar quais portas estão em uso, quais processos estão associados a cada conexão e se há serviços em escuta (<em>listening</em>). Essa visão é essencial para diagnosticar problemas de conectividade, detectar conexões suspeitas e monitorar o tráfego de rede em tempo real.</p>
+<hr />
+<h2 id="controle-e-monitoramento-de-portas-com-tcpdump">Controle e Monitoramento de Portas com tcpdump</h2>
+<div class="admonition info">
+<p class="admonition-title">Objetivos desta parte</p>
+<ul>
+<li>Entender a importância da captura de pacotes na análise de tráfego de rede.  </li>
+<li>Compreender o papel do tcpdump como ferramenta de auditoria e diagnóstico.  </li>
+<li>Relacionar a captura de pacotes com a detecção de problemas e ameaças.  </li>
+</ul>
+</div>
+<h3 id="por-que-capturar-pacotes">Por que capturar pacotes?</h3>
+<p>A captura de pacotes permite:<br />
+- <strong>Monitorar a atividade de rede</strong> em tempo real.<br />
+- <strong>Identificar padrões</strong> de tráfego legítimo e malicioso.<br />
+- <strong>Detectar incidentes de segurança</strong>, como varreduras de porta, tentativas de invasão e vazamento de dados.<br />
+- <strong>Diagnosticar problemas</strong> de desempenho, latência e conectividade.<br />
+- <strong>Validar configurações</strong> de firewall, roteamento e NAT.  </p>
+<h3 id="o-papel-do-tcpdump">O papel do tcpdump</h3>
+<p>O <strong>tcpdump</strong> é uma ferramenta que:<br />
+- Funciona diretamente no terminal, sem necessidade de interface gráfica.<br />
+- Captura pacotes que trafegam por uma interface de rede, mostrando informações do cabeçalho.<br />
+- Permite aplicar filtros para registrar apenas o tráfego de interesse.<br />
+- Gera arquivos <code>.pcap</code> que podem ser analisados posteriormente em ferramentas como o <strong>Wireshark</strong>.  </p>
+<div class="admonition note">
+<p class="admonition-title">Importante</p>
+<p>Embora o tcpdump possa mostrar dados detalhados, nesta aula vamos focar em como interpretar as informações capturadas e entender o fluxo da comunicação, deixando a explicação aprofundada de comandos para a aba de <strong>Ferramentas</strong>.</p>
+</div>
+<h3 id="interpretacao-geral-de-capturas">Interpretação geral de capturas</h3>
+<p>Ao analisar capturas, fique atento a:<br />
+- <strong>Endereço IP de origem e destino</strong>.<br />
+- <strong>Portas utilizadas</strong> (pode indicar o serviço).<br />
+- <strong>Flags TCP</strong> (SYN, ACK, FIN, RST, PUSH) que indicam o estágio da conexão.<br />
+- <strong>Tamanho da janela</strong> (window size) que pode indicar ajustes de desempenho.<br />
+- <strong>Volume e frequência de pacotes</strong> para identificar comportamentos anômalos.  </p>
+<h3 id="aplicacoes-praticas">Aplicações práticas</h3>
+<p>Durante as aulas práticas, o tcpdump será usado para:<br />
+- Monitorar conexões durante um <strong>pentest</strong>.<br />
+- Analisar o tráfego antes, durante e depois de ataques simulados (ex.: ARP spoofing).<br />
+- Validar se regras de firewall estão bloqueando ou permitindo o tráfego como esperado.<br />
+- Coletar evidências para exercícios de <strong>análise forense</strong>.  </p>
+<h3 id="conexao-com-proximos-topicos">Conexão com próximos tópicos</h3>
+<p>A captura e análise de pacotes será um <strong>ponto de transição</strong> para:<br />
+- Estudo de <strong>análise de logs</strong>.<br />
+- Compreensão de <strong>tráfego normal vs tráfego malicioso</strong>.<br />
+- Identificação de <strong>padrões de ataque</strong> que podem ser detectados tanto em capturas quanto em registros de log.  </p>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Saiba mais</p>
+<p>Para detalhes sobre instalação, execução, filtros e exemplos de uso do tcpdump, consulte a <a href="../../ferramentas/tcpdump/"><strong>seção Ferramentas → tcpdump</strong></a> no menu lateral.</p>
+</div>
+<hr />
+<h2 id="analise-de-logs">Análise de Logs</h2>
+<div class="admonition info">
+<p class="admonition-title">Objetivos desta parte</p>
+<ul>
+<li>Entender a importância da análise de logs na segurança da informação.  </li>
+<li>Reconhecer diferentes tipos de logs e suas aplicações.  </li>
+<li>Saber identificar padrões e anomalias a partir de registros.  </li>
+<li>Relacionar eventos registrados a possíveis incidentes de segurança.  </li>
+</ul>
+</div>
+<h3 id="o-que-sao-logs">O que são logs?</h3>
+<p>Logs são registros automáticos de eventos gerados por sistemas, aplicações, dispositivos de rede e ferramentas de segurança.<br />
+Eles contêm informações cruciais para:  <br />
+- <strong>Auditoria</strong> – comprovar ações executadas no sistema.    <br />
+- <strong>Monitoramento</strong> – acompanhar a operação de serviços e aplicações.  <br />
+- <strong>Investigação</strong> – identificar causas de falhas ou incidentes de segurança.    </p>
+<h3 id="importancia-na-seguranca-da-informacao">Importância na Segurança da Informação</h3>
+<p>A análise de logs e conexões de rede é fundamental para:<br />
+- <strong>Identificar atividades maliciosas</strong> – tentativas de intrusão, execução de malware, ataques DDoS etc.  <br />
+- <strong>Resolver problemas</strong> – diagnosticar falhas, quedas de serviço e gargalos.  <br />
+- <strong>Otimizar desempenho</strong> – identificar padrões de uso e ajustar configurações.  <br />
+- <strong>Planejamento</strong> – prever necessidade de upgrades e melhorias.    </p>
+<h3 id="tipos-de-logs">Tipos de logs</h3>
+<p>Exemplos comuns:<br />
+- <strong>Logs de firewall</strong> – conexões permitidas e bloqueadas, alertas de ataques.  <br />
+- <strong>Logs de servidores web</strong> – acessos, erros HTTP, requisições suspeitas.  <br />
+- <strong>Logs de servidores de aplicação</strong> – falhas internas, tempo de resposta.  <br />
+- <strong>Logs de sistema operacional</strong> – autenticações, erros de hardware/software.  <br />
+- <strong>Logs de IDS/IPS</strong> – detecção e bloqueio de ataques.  </p>
+<h3 id="localizacao-dos-logs-no-linux">📍 Localização dos logs no Linux</h3>
+<p>No Linux, a maioria dos logs é armazenada em <code>/var/log/</code></p>
+<p><img alt="log10" src="../../assets/images/aulas/analiselog/log10.png" /></p>
+<p>Dentro deste diretório, cada serviço ou aplicação pode ter seu próprio arquivo de log, por exemplo:<br />
+- <code>/var/log/syslog</code><br />
+- <code>/var/log/auth.log</code><br />
+- <code>/var/log/apache2/access.log</code><br />
+- <code>/var/log/apache2/error.log</code>  </p>
+<h3 id="interpretando-logs">Interpretando logs</h3>
+<p>Ao analisar, procure:<br />
+- <strong>Padrões e tendências</strong> (ex.: acessos fora do horário habitual). <br />
+- <strong>Eventos incomuns ou suspeitos</strong> (ex.: muitos erros de autenticação).  <br />
+- <strong>Tráfego suspeito</strong> (ex.: requisições repetidas para páginas não existentes).  </p>
+<h3 id="conexao-com-outras-praticas">Conexão com outras práticas</h3>
+<p>A análise de logs complementa:<br />
+- <strong>Monitoramento de pacotes</strong> (tcpdump, Wireshark).  <br />
+- <strong>Configuração de firewalls</strong> (iptables, ufw).  <br />
+- <strong>Sistemas de detecção de intrusão</strong> (Snort, Suricata).    </p>
+<hr />
+<h2 id="exemplos-de-ataques-em-logs-de-servidor-web">Exemplos de ataques em logs de servidor web</h2>
+<ul>
+<li>Tentativas de acessar <code>/phpmyadmin/</code> ou <code>/scripts/setup.php</code> (busca por painéis administrativos).  </li>
+<li>Requisições com métodos incomuns como <code>PROPFIND</code>.  </li>
+<li>Códigos de status HTTP fora do padrão esperado.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Códigos de status HTTP</p>
+<ul>
+<li><strong>1xx</strong> – Informações  </li>
+<li><strong>2xx</strong> – Sucesso  </li>
+<li><strong>3xx</strong> – Redirecionamento  </li>
+<li><strong>4xx</strong> – Erro do cliente  </li>
+<li><strong>5xx</strong> – Erro do servidor  </li>
+</ul>
+</div>
+<p>Exemplo de ataque brute force SSH:</p>
+<div class="highlight"><pre><span></span><code>Oct<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">06</span>:25:46<span class="w"> </span>host-vps<span class="w"> </span>sshd<span class="o">[</span><span class="m">8463</span><span class="o">]</span>:<span class="w"> </span>Failed<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>root<span class="w"> </span>from<span class="w"> </span><span class="m">116</span>.31.116.17<span class="w"> </span>port<span class="w"> </span><span class="m">31142</span><span class="w"> </span>ssh2<span class="w">  </span>
+Oct<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">06</span>:25:48<span class="w"> </span>host-vps<span class="w"> </span>sshd<span class="o">[</span><span class="m">8463</span><span class="o">]</span>:<span class="w"> </span>Failed<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>root<span class="w"> </span>from<span class="w"> </span><span class="m">116</span>.31.116.17<span class="w"> </span>port<span class="w"> </span><span class="m">31142</span><span class="w"> </span>ssh2<span class="w">  </span>
+Oct<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">06</span>:25:51<span class="w"> </span>host-vps<span class="w"> </span>sshd<span class="o">[</span><span class="m">8463</span><span class="o">]</span>:<span class="w"> </span>Failed<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>root<span class="w"> </span>from<span class="w"> </span><span class="m">116</span>.31.116.17<span class="w"> </span>port<span class="w"> </span><span class="m">31142</span><span class="w"> </span>ssh2<span class="w">   </span>
+Oct<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">06</span>:25:51<span class="w"> </span>host-vps<span class="w"> </span>sshd<span class="o">[</span><span class="m">8463</span><span class="o">]</span>:<span class="w"> </span>Received<span class="w"> </span>disconnect<span class="w"> </span>from<span class="w"> </span><span class="m">116</span>.31.116.17:<span class="w"> </span><span class="m">11</span>:<span class="w"> </span><span class="o">[</span>preauth<span class="o">]</span><span class="w">  </span>
+</code></pre></div>
+<p>Exemplo de ataque web server:  </p>
+<div class="highlight"><pre><span></span><code><span class="m">191</span>.96.249.97<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span><span class="o">[</span><span class="m">20</span>/Apr/2017:15:45:49<span class="w"> </span>+0200<span class="o">]</span><span class="w"> </span><span class="s2">&quot;GET /phpmyadmin/scripts/setup.php HTTP/1.0&quot;</span><span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="m">162</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+<span class="m">190</span>.129.24.154<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span><span class="o">[</span><span class="m">14</span>/Jul/2015:06:41:59<span class="w"> </span>-0400<span class="o">]</span><span class="w"> </span><span class="s2">&quot;GET /phpMyAdmin/index.php HTTP/1.1&quot;</span><span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="m">162</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="s2">&quot;Python-urllib/2.6&quot;</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+<span class="m">190</span>.129.24.154<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span><span class="o">[</span><span class="m">20</span>/Apr/2017:09:04:47<span class="w"> </span>+0200<span class="o">]</span><span class="w"> </span><span class="s2">&quot;PROPFIND /webdav/ HTTP/1.1&quot;</span><span class="w"> </span><span class="m">405</span><span class="w"> </span><span class="m">166</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="s2">&quot;WEBDAV Client&quot;</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+<span class="m">180</span>.97.106.37<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span><span class="o">[</span><span class="m">20</span>/Apr/2017:04:31:02<span class="w"> </span>+0200<span class="o">]</span><span class="w"> </span><span class="s2">&quot;\x04\x01\x00P\xB4\xA3qR\x00&quot;</span><span class="w"> </span><span class="m">400</span><span class="w"> </span><span class="m">166</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+</code></pre></div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://insper.edu.br" target="_blank" rel="noopener" title="insper.edu.br" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M271.9 20.2c-9.8-5.6-21.9-5.6-31.8 0l-224 128c-12.6 7.2-18.8 22-15.1 36S17.5 208 32 208h32v208l-51.2 38.4C4.7 460.4 0 469.9 0 480c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32 0-10.1-4.7-19.6-12.8-25.6L448 416V208h32c14.5 0 27.2-9.8 30.9-23.8s-2.5-28.8-15.1-36l-224-128zM400 208v208h-64V208zm-112 0v208h-64V208zm-112 0v208h-64V208zm80-112a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.social", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

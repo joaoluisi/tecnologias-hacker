@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/ferramentas/nmap/">
+        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/ferramentas/diagnostico/">
       
       
-        <link rel="prev" href="../diagnostico/">
+        <link rel="prev" href="../../plano/">
       
       
-        <link rel="next" href="../netstat/">
+        <link rel="next" href="../nmap/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>NMAP - Tecnologias Hacker – 2025/2</title>
+        <title>Diagnóstico de rede - Tecnologias Hacker – 2025/2</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-skip">
+        <a href="#ferramentas-de-diagnostico-de-rede" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NMAP
+              Diagnóstico de rede
             
           </span>
         </div>
@@ -293,7 +293,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../diagnostico/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -632,29 +632,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../diagnostico/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Diagnóstico de rede
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -664,13 +641,15 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   
   <span class="md-ellipsis">
-    NMAP
+    Diagnóstico de rede
     
   </span>
   
@@ -683,7 +662,7 @@
   
   
   <span class="md-ellipsis">
-    NMAP
+    Diagnóstico de rede
     
   </span>
   
@@ -696,6 +675,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -704,55 +685,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-nav__link">
+  <a href="#ping" class="md-nav__link">
     <span class="md-ellipsis">
-      Reconhecendo o alvo com o NMAP
+      ping
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alguns-exemplos-de-comandos-nmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alguns exemplos de comandos nmap
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alguns exemplos de comandos nmap">
+    <nav class="md-nav" aria-label="ping">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exemplo-1-descobrindo-as-portas-abertas-de-um-host" class="md-nav__link">
+  <a href="#principais-usos" class="md-nav__link">
     <span class="md-ellipsis">
-      Exemplo 1: Descobrindo as portas abertas de um host
+      Principais usos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao" class="md-nav__link">
+  <a href="#opcoes-comuns" class="md-nav__link">
     <span class="md-ellipsis">
-      Exemplo 2: Descobrindo as versões dos serviços em execução
+      Opções comuns
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemplo-3-descobrindo-o-sistema-operacional" class="md-nav__link">
+  <a href="#exemplos" class="md-nav__link">
     <span class="md-ellipsis">
-      Exemplo 3: Descobrindo o Sistema Operacional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-4-selecionando-as-portas-a-serem-escaneadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 4: Selecionando as portas a serem escaneadas
+      Exemplos
     </span>
   </a>
   
@@ -764,28 +727,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nmap-scripting-engine-nse" class="md-nav__link">
+  <a href="#traceroute" class="md-nav__link">
     <span class="md-ellipsis">
-      Nmap Scripting Engine (NSE)
+      Traceroute
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Nmap Scripting Engine (NSE)">
+    <nav class="md-nav" aria-label="Traceroute">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#para-descoberta-de-vulnerabilidades" class="md-nav__link">
+  <a href="#principais-usos_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Para descoberta de vulnerabilidades
+      Principais usos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#encontrar-malware-ou-backdoor" class="md-nav__link">
+  <a href="#opcoes-comuns_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Encontrar malware ou backdoor
+      Opções comuns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
     </span>
   </a>
   
@@ -797,9 +769,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cheatsheet-nmap" class="md-nav__link">
+  <a href="#fping" class="md-nav__link">
     <span class="md-ellipsis">
-      Cheatsheet NMAP
+      fping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-usos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais usos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcoes-comuns_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções comuns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arping" class="md-nav__link">
+    <span class="md-ellipsis">
+      arping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="arping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-usos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais usos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcoes-comuns_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções comuns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
     </span>
   </a>
   
@@ -809,6 +865,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NMAP
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -907,6 +986,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -915,55 +996,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-nav__link">
+  <a href="#ping" class="md-nav__link">
     <span class="md-ellipsis">
-      Reconhecendo o alvo com o NMAP
+      ping
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alguns-exemplos-de-comandos-nmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alguns exemplos de comandos nmap
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alguns exemplos de comandos nmap">
+    <nav class="md-nav" aria-label="ping">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exemplo-1-descobrindo-as-portas-abertas-de-um-host" class="md-nav__link">
+  <a href="#principais-usos" class="md-nav__link">
     <span class="md-ellipsis">
-      Exemplo 1: Descobrindo as portas abertas de um host
+      Principais usos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao" class="md-nav__link">
+  <a href="#opcoes-comuns" class="md-nav__link">
     <span class="md-ellipsis">
-      Exemplo 2: Descobrindo as versões dos serviços em execução
+      Opções comuns
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemplo-3-descobrindo-o-sistema-operacional" class="md-nav__link">
+  <a href="#exemplos" class="md-nav__link">
     <span class="md-ellipsis">
-      Exemplo 3: Descobrindo o Sistema Operacional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-4-selecionando-as-portas-a-serem-escaneadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 4: Selecionando as portas a serem escaneadas
+      Exemplos
     </span>
   </a>
   
@@ -975,28 +1038,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nmap-scripting-engine-nse" class="md-nav__link">
+  <a href="#traceroute" class="md-nav__link">
     <span class="md-ellipsis">
-      Nmap Scripting Engine (NSE)
+      Traceroute
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Nmap Scripting Engine (NSE)">
+    <nav class="md-nav" aria-label="Traceroute">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#para-descoberta-de-vulnerabilidades" class="md-nav__link">
+  <a href="#principais-usos_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Para descoberta de vulnerabilidades
+      Principais usos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#encontrar-malware-ou-backdoor" class="md-nav__link">
+  <a href="#opcoes-comuns_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Encontrar malware ou backdoor
+      Opções comuns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
     </span>
   </a>
   
@@ -1008,9 +1080,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cheatsheet-nmap" class="md-nav__link">
+  <a href="#fping" class="md-nav__link">
     <span class="md-ellipsis">
-      Cheatsheet NMAP
+      fping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-usos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais usos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcoes-comuns_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções comuns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arping" class="md-nav__link">
+    <span class="md-ellipsis">
+      arping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="arping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-usos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais usos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcoes-comuns_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções comuns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
     </span>
   </a>
   
@@ -1035,69 +1191,105 @@
   
 
 
-  <h1>NMAP</h1>
-
-<h2 id="reconhecendo-o-alvo-com-o-nmap"><strong>Reconhecendo o alvo com o NMAP</strong></h2>
-<p>Pode ser considerada uma das ferramentas mais completas para realizar varredura em redes, pois disponibiliza um grande número de opções, possibilitando realizarmos diversas varreduras em busca de vulnerabilidades e características do alvo. Essa ferramenta possui, inclusive, opções que permitem burlar sistemas de proteção, como IDS/IPS e Firewall, cujas regras poderiam bloquear ou detectar varreduras não permitidas.</p>
-<p>Ela localiza e identifica todas as portas TCP e UDP disponíveis em um host, tentando determinar qual o serviço que está “escutando” em cada porta e é capaz de identificar o tipo de sistema operacional em execução. O Nmap é visto como uma ferramenta de segurança, usada para descobrir “brechas” em sistemas, ajudando na tarefa de monitoração e gerenciamento da rede e identificação de serviços rodando em servidores.</p>
-<p><strong>Sintaxe:</strong></p>
-<p><strong>nmap [Scan Type(s)] [Options] {target specification}</strong></p>
-<p><img alt="nmap1" src="../../assets/images/ferramentas/nmap1.png" /></p>
-<p>No exemplo da figura ele foi executado de forma simples, apenas indicando o IP do alvo. Como resposta é exibido as portas e serviços disponíveis no host.</p>
-<p>Usando o modo "verbose" "-v" para exibir mais informações do alvo. Utilize "-vv" para ter uma saída com informações mais detalhadas.</p>
-<p><img alt="nmap2" src="../../assets/images/ferramentas/nmap2.png" /></p>
+<h1 id="ferramentas-de-diagnostico-de-rede">Ferramentas de Diagnóstico de Rede</h1>
+<p>Este documento reúne algumas ferramentas fundamentais para testes e diagnósticos de rede: <strong>ping</strong>, <strong>traceroute</strong>, <strong>fping</strong> e <strong>arping</strong>.</p>
 <hr />
-<h2 id="alguns-exemplos-de-comandos-nmap"><strong>Alguns exemplos de comandos nmap</strong></h2>
-<p>Primeiramente, descubra qual o número IP de sua máquina hospedeira. Lembre-se que a interface virtual do seu Kali Linux deverá estar configurada em modo "Bridge".</p>
-<p>Para efeitos de exemplo, assume-se que o IP da máquina hospedeira seja <strong>192.168.68.109</strong>. Lembre de alterá-lo para o número de sua máquina quando for executar algum comando.</p>
-<h3 id="exemplo-1-descobrindo-as-portas-abertas-de-um-host"><strong>Exemplo 1: Descobrindo as portas abertas de um host</strong></h3>
-<p>Vamos descobrir quais portas de comunicação TCP estão abertas no alvo.</p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sT<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap3" src="../../assets/images/ferramentas/nmap3.png" /></p>
-<p>A opção <strong><code>-s</code></strong> no script é o comando para o escaneamento. Já a opção <strong><code>T</code></strong> indica o escaneamento de portas TCP. Caso seja necessário escanear as portas UDP, altere o <strong><code>T</code></strong> para <strong><code>U</code></strong>.</p>
-<p>A saída do comando apresentada na figura exibe 3 colunas:<br />
-1. Número da porta aberta<br />
-2. Estado da porta<br />
-3. Possível serviço que está sendo executado nesta porta  </p>
-<p>Estado das portas:</p>
+<h2 id="ping">ping</h2>
+<p>O <strong>ping</strong> é uma ferramenta de linha de comando usada para testar a conectividade entre dois dispositivos na rede.<br />
+Ele envia pacotes <strong>ICMP Echo Request</strong> para um destino e aguarda uma resposta <strong>ICMP Echo Reply</strong>.</p>
+<h3 id="principais-usos">Principais usos</h3>
 <ul>
-<li><strong>Aberta (open)</strong> – Está ativamente aceitando conexões TCP ou pacotes UDP nesta porta.</li>
-<li><strong>Fechada (closed)</strong> – Uma porta fechada está acessível (recebe e responde a pacotes de sondagens do Nmap), mas não há nenhuma aplicação ouvindo nela.</li>
-<li><strong>Filtrada (filtered)</strong> – O Nmap não consegue determinar se a porta está aberta porque uma filtragem de pacotes impede que as sondagens alcancem a porta.</li>
+<li>Verificar se um host está acessível.</li>
+<li>Medir tempo de resposta (latência).</li>
+<li>Testar estabilidade da conexão.</li>
+<li>Diagnosticar perdas de pacotes.</li>
 </ul>
-<h3 id="exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao"><strong>Exemplo 2: Descobrindo as versões dos serviços em execução</strong></h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap4" src="../../assets/images/ferramentas/nmap4.png" /></p>
-<p>Observe que na saída do comando é acrescentada uma quarta coluna, onde a versão do serviço em execução é apresentado.</p>
-<h3 id="exemplo-3-descobrindo-o-sistema-operacional"><strong>Exemplo 3: Descobrindo o Sistema Operacional</strong></h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-O<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap5" src="../../assets/images/ferramentas/nmap5.png" /></p>
-<p>A opção "-O" tenta descobrir qual a versão do sistema operacional do host alvo.</p>
-<h3 id="exemplo-4-selecionando-as-portas-a-serem-escaneadas"><strong>Exemplo 4: Selecionando as portas a serem escaneadas</strong></h3>
-<p>É possível escolher uma ou várias portas a serem escaneadas. Para isso, usa-se a opção "-p". No primeiro exemplo vamos escanear apenas a porta 80, já no segundo exemplo iremos escanear as portas 445 e 22.</p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap6" src="../../assets/images/ferramentas/nmap6.png" /></p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">445</span>,22<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap7" src="../../assets/images/ferramentas/nmap7.png" /></p>
-<hr />
-<h2 id="nmap-scripting-engine-nse">Nmap Scripting Engine (NSE)</h2>
-<p>Oferece um conjunto totalmente novo de recursos e confere uma nova dimensão para o Nmap.<br />
-Permite que o Nmap conclua uma série de tarefas, incluindo <em>scanning</em> de vulnerabilidades, detecção de <em>backdoors</em> e, em alguns casos, a exploração de vulnerabilidades.</p>
-<p>A seguir, são apresentados alguns exemplos e exercícios para a prática do Nmap:</p>
-<h3 id="para-descoberta-de-vulnerabilidades">Para descoberta de vulnerabilidades</h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span>vuln<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<h3 id="encontrar-malware-ou-backdoor">Encontrar malware ou backdoor</h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-v<span class="w"> </span>--script<span class="w"> </span>malware<span class="w"> </span><span class="m">192</span>.168.68.109
+<h3 id="opcoes-comuns">Opções comuns</h3>
+<ul>
+<li><code>-c &lt;n&gt;</code> → Envia um número específico de pacotes.</li>
+<li><code>-i &lt;seg&gt;</code> → Intervalo entre pacotes.</li>
+<li><code>-s &lt;bytes&gt;</code> → Tamanho do pacote enviado.</li>
+<li><code>-t &lt;ttl&gt;</code> → Define o valor do TTL (Time-To-Live).</li>
+</ul>
+<h3 id="exemplos">Exemplos</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Testar conectividade com 4 pacotes</span>
+ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>google.com
+
+<span class="c1"># Definir tamanho do pacote e intervalo</span>
+ping<span class="w"> </span>-s<span class="w"> </span><span class="m">1024</span><span class="w"> </span>-i<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="m">8</span>.8.8.8
 </code></pre></div>
 <hr />
-<h2 id="cheatsheet-nmap">Cheatsheet NMAP</h2>
-<p><img alt="nmap8" src="../../assets/images/ferramentas/Nmap-Cheat-Sheet-1.jpg" /></p>
+<h2 id="traceroute">Traceroute</h2>
+<p>O <strong>traceroute</strong> mostra o caminho que os pacotes percorrem até o destino, revelando cada roteador intermediário e o tempo até cada salto.</p>
+<h3 id="principais-usos_1">Principais usos</h3>
+<ul>
+<li>Diagnosticar onde a conexão está falhando ou está lenta.</li>
+<li>Visualizar o trajeto dos pacotes até o destino.</li>
+<li>Entender o número de saltos até um host.</li>
+</ul>
+<h3 id="opcoes-comuns_1">Opções comuns</h3>
+<ul>
+<li><code>-n</code> → Não resolve nomes de host (mostra IPs).</li>
+<li><code>-w &lt;seg&gt;</code> → Tempo máximo de espera por resposta.</li>
+<li><code>-m &lt;ttl&gt;</code> → Define o TTL máximo (limite de saltos).</li>
+</ul>
+<h3 id="exemplos_1">Exemplos</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mostrar caminho até um host</span>
+traceroute<span class="w"> </span>google.com
+
+<span class="c1"># Mostrar caminho usando apenas IPs</span>
+traceroute<span class="w"> </span>-n<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div>
+<hr />
+<h2 id="fping">fping</h2>
+<p>O <strong>fping</strong> é uma versão avançada do ping, capaz de testar múltiplos hosts de forma simultânea.</p>
+<h3 id="principais-usos_2">Principais usos</h3>
+<ul>
+<li>Verificar status de vários hosts em uma rede.</li>
+<li>Fazer varreduras rápidas para identificar dispositivos ativos.</li>
+</ul>
+<h3 id="opcoes-comuns_2">Opções comuns</h3>
+<ul>
+<li><code>-a</code> → Mostra apenas hosts que responderam.</li>
+<li><code>-u</code> → Mostra apenas hosts que não responderam.</li>
+<li><code>-g</code> → Gera uma lista de IPs em um intervalo.</li>
+</ul>
+<h3 id="exemplos_2">Exemplos</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Testar múltiplos hosts</span>
+fping<span class="w"> </span><span class="m">192</span>.168.0.1<span class="w"> </span><span class="m">192</span>.168.0.10<span class="w"> </span><span class="m">192</span>.168.0.20
+
+<span class="c1"># Verificar toda a sub-rede</span>
+fping<span class="w"> </span>-a<span class="w"> </span>-g<span class="w"> </span><span class="m">192</span>.168.0.0/24
+</code></pre></div>
+<hr />
+<h2 id="arping">arping</h2>
+<p>O <strong>arping</strong> envia pacotes <strong>ARP Request</strong> para descobrir dispositivos na mesma rede local.</p>
+<h3 id="principais-usos_3">Principais usos</h3>
+<ul>
+<li>Descobrir hosts ativos em uma LAN.</li>
+<li>Diagnosticar problemas de resolução ARP.</li>
+<li>Verificar se um endereço IP está em uso.</li>
+</ul>
+<h3 id="opcoes-comuns_3">Opções comuns</h3>
+<ul>
+<li><code>-I &lt;interface&gt;</code> → Define a interface de rede.</li>
+<li><code>-c &lt;n&gt;</code> → Número de pacotes a enviar.</li>
+</ul>
+<h3 id="exemplos_3">Exemplos</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enviar ARP Requests para um IP</span>
+arping<span class="w"> </span><span class="m">192</span>.168.0.1
+
+<span class="c1"># Usar interface específica e limitar número de pacotes</span>
+arping<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-c<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">192</span>.168.0.1
+</code></pre></div>
+<hr />
+<h2 id="referencias">Referências</h2>
+<ul>
+<li><code>man ping</code></li>
+<li><code>man traceroute</code></li>
+<li><code>man fping</code></li>
+<li><code>man arping</code></li>
+</ul>
 
 
 

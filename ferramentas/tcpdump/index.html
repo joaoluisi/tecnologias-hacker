@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/ferramentas/nmap/">
+        <link rel="canonical" href="https://joaoluisi.github.io/tecnologias-hacker/ferramentas/tcpdump/">
       
       
-        <link rel="prev" href="../diagnostico/">
+        <link rel="prev" href="../netstat/">
       
       
-        <link rel="next" href="../netstat/">
+        <link rel="next" href="../netdiscover/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>NMAP - Tecnologias Hacker – 2025/2</title>
+        <title>TCP dump - Tecnologias Hacker – 2025/2</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-skip">
+        <a href="#principais-usos" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NMAP
+              TCP dump
             
           </span>
         </div>
@@ -655,30 +655,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    NMAP
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../nmap/" class="md-nav__link">
         
   
   
@@ -689,126 +669,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reconhecendo o alvo com o NMAP
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alguns-exemplos-de-comandos-nmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alguns exemplos de comandos nmap
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alguns exemplos de comandos nmap">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-1-descobrindo-as-portas-abertas-de-um-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 1: Descobrindo as portas abertas de um host
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 2: Descobrindo as versões dos serviços em execução
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-3-descobrindo-o-sistema-operacional" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 3: Descobrindo o Sistema Operacional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-4-selecionando-as-portas-a-serem-escaneadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 4: Selecionando as portas a serem escaneadas
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nmap-scripting-engine-nse" class="md-nav__link">
-    <span class="md-ellipsis">
-      Nmap Scripting Engine (NSE)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Nmap Scripting Engine (NSE)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#para-descoberta-de-vulnerabilidades" class="md-nav__link">
-    <span class="md-ellipsis">
-      Para descoberta de vulnerabilidades
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encontrar-malware-ou-backdoor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encontrar malware ou backdoor
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cheatsheet-nmap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cheatsheet NMAP
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -841,10 +701,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tcpdump/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    TCP dump
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -855,6 +735,78 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#principais-usos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais usos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sintaxe-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sintaxe básica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos de uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretando-a-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretando a saída
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -915,102 +867,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reconhecendo-o-alvo-com-o-nmap" class="md-nav__link">
+  <a href="#principais-usos" class="md-nav__link">
     <span class="md-ellipsis">
-      Reconhecendo o alvo com o NMAP
+      Principais usos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#alguns-exemplos-de-comandos-nmap" class="md-nav__link">
+  <a href="#sintaxe-basica" class="md-nav__link">
     <span class="md-ellipsis">
-      Alguns exemplos de comandos nmap
+      Sintaxe básica
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Alguns exemplos de comandos nmap">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-1-descobrindo-as-portas-abertas-de-um-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 1: Descobrindo as portas abertas de um host
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 2: Descobrindo as versões dos serviços em execução
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-3-descobrindo-o-sistema-operacional" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 3: Descobrindo o Sistema Operacional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemplo-4-selecionando-as-portas-a-serem-escaneadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo 4: Selecionando as portas a serem escaneadas
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#nmap-scripting-engine-nse" class="md-nav__link">
+  <a href="#expressoes" class="md-nav__link">
     <span class="md-ellipsis">
-      Nmap Scripting Engine (NSE)
+      Expressões
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Nmap Scripting Engine (NSE)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#para-descoberta-de-vulnerabilidades" class="md-nav__link">
-    <span class="md-ellipsis">
-      Para descoberta de vulnerabilidades
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encontrar-malware-ou-backdoor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encontrar malware ou backdoor
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cheatsheet-nmap" class="md-nav__link">
+  <a href="#exemplos-de-uso" class="md-nav__link">
     <span class="md-ellipsis">
-      Cheatsheet NMAP
+      Exemplos de uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretando-a-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretando a saída
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
     </span>
   </a>
   
@@ -1035,69 +939,132 @@
   
 
 
-  <h1>NMAP</h1>
+  <h1>TCP dump</h1>
 
-<h2 id="reconhecendo-o-alvo-com-o-nmap"><strong>Reconhecendo o alvo com o NMAP</strong></h2>
-<p>Pode ser considerada uma das ferramentas mais completas para realizar varredura em redes, pois disponibiliza um grande número de opções, possibilitando realizarmos diversas varreduras em busca de vulnerabilidades e características do alvo. Essa ferramenta possui, inclusive, opções que permitem burlar sistemas de proteção, como IDS/IPS e Firewall, cujas regras poderiam bloquear ou detectar varreduras não permitidas.</p>
-<p>Ela localiza e identifica todas as portas TCP e UDP disponíveis em um host, tentando determinar qual o serviço que está “escutando” em cada porta e é capaz de identificar o tipo de sistema operacional em execução. O Nmap é visto como uma ferramenta de segurança, usada para descobrir “brechas” em sistemas, ajudando na tarefa de monitoração e gerenciamento da rede e identificação de serviços rodando em servidores.</p>
-<p><strong>Sintaxe:</strong></p>
-<p><strong>nmap [Scan Type(s)] [Options] {target specification}</strong></p>
-<p><img alt="nmap1" src="../../assets/images/ferramentas/nmap1.png" /></p>
-<p>No exemplo da figura ele foi executado de forma simples, apenas indicando o IP do alvo. Como resposta é exibido as portas e serviços disponíveis no host.</p>
-<p>Usando o modo "verbose" "-v" para exibir mais informações do alvo. Utilize "-vv" para ter uma saída com informações mais detalhadas.</p>
-<p><img alt="nmap2" src="../../assets/images/ferramentas/nmap2.png" /></p>
+<p>O <strong>tcpdump</strong> é uma ferramenta de linha de comando utilizada para capturar e analisar pacotes de dados trafegando em uma rede.<br />
+É essencial para administradores de sistemas, analistas de segurança e profissionais de redes, pois permite inspecionar o tráfego em tempo real ou gravá-lo para análise posterior.</p>
 <hr />
-<h2 id="alguns-exemplos-de-comandos-nmap"><strong>Alguns exemplos de comandos nmap</strong></h2>
-<p>Primeiramente, descubra qual o número IP de sua máquina hospedeira. Lembre-se que a interface virtual do seu Kali Linux deverá estar configurada em modo "Bridge".</p>
-<p>Para efeitos de exemplo, assume-se que o IP da máquina hospedeira seja <strong>192.168.68.109</strong>. Lembre de alterá-lo para o número de sua máquina quando for executar algum comando.</p>
-<h3 id="exemplo-1-descobrindo-as-portas-abertas-de-um-host"><strong>Exemplo 1: Descobrindo as portas abertas de um host</strong></h3>
-<p>Vamos descobrir quais portas de comunicação TCP estão abertas no alvo.</p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sT<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap3" src="../../assets/images/ferramentas/nmap3.png" /></p>
-<p>A opção <strong><code>-s</code></strong> no script é o comando para o escaneamento. Já a opção <strong><code>T</code></strong> indica o escaneamento de portas TCP. Caso seja necessário escanear as portas UDP, altere o <strong><code>T</code></strong> para <strong><code>U</code></strong>.</p>
-<p>A saída do comando apresentada na figura exibe 3 colunas:<br />
-1. Número da porta aberta<br />
-2. Estado da porta<br />
-3. Possível serviço que está sendo executado nesta porta  </p>
-<p>Estado das portas:</p>
+<h2 id="principais-usos">Principais usos</h2>
 <ul>
-<li><strong>Aberta (open)</strong> – Está ativamente aceitando conexões TCP ou pacotes UDP nesta porta.</li>
-<li><strong>Fechada (closed)</strong> – Uma porta fechada está acessível (recebe e responde a pacotes de sondagens do Nmap), mas não há nenhuma aplicação ouvindo nela.</li>
-<li><strong>Filtrada (filtered)</strong> – O Nmap não consegue determinar se a porta está aberta porque uma filtragem de pacotes impede que as sondagens alcancem a porta.</li>
+<li>Capturar pacotes em tempo real para diagnóstico de problemas de rede.  </li>
+<li>Monitorar conexões durante auditorias e testes de segurança.  </li>
+<li>Identificar tráfego suspeito ou anômalo.  </li>
+<li>Filtrar pacotes por IP, porta, protocolo ou direção.  </li>
+<li>Salvar capturas para análise em ferramentas gráficas como <strong>Wireshark</strong>.  </li>
 </ul>
-<h3 id="exemplo-2-descobrindo-as-versoes-dos-servicos-em-execucao"><strong>Exemplo 2: Descobrindo as versões dos serviços em execução</strong></h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap4" src="../../assets/images/ferramentas/nmap4.png" /></p>
-<p>Observe que na saída do comando é acrescentada uma quarta coluna, onde a versão do serviço em execução é apresentado.</p>
-<h3 id="exemplo-3-descobrindo-o-sistema-operacional"><strong>Exemplo 3: Descobrindo o Sistema Operacional</strong></h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-O<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap5" src="../../assets/images/ferramentas/nmap5.png" /></p>
-<p>A opção "-O" tenta descobrir qual a versão do sistema operacional do host alvo.</p>
-<h3 id="exemplo-4-selecionando-as-portas-a-serem-escaneadas"><strong>Exemplo 4: Selecionando as portas a serem escaneadas</strong></h3>
-<p>É possível escolher uma ou várias portas a serem escaneadas. Para isso, usa-se a opção "-p". No primeiro exemplo vamos escanear apenas a porta 80, já no segundo exemplo iremos escanear as portas 445 e 22.</p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap6" src="../../assets/images/ferramentas/nmap6.png" /></p>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">445</span>,22<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
-<p><img alt="nmap7" src="../../assets/images/ferramentas/nmap7.png" /></p>
 <hr />
-<h2 id="nmap-scripting-engine-nse">Nmap Scripting Engine (NSE)</h2>
-<p>Oferece um conjunto totalmente novo de recursos e confere uma nova dimensão para o Nmap.<br />
-Permite que o Nmap conclua uma série de tarefas, incluindo <em>scanning</em> de vulnerabilidades, detecção de <em>backdoors</em> e, em alguns casos, a exploração de vulnerabilidades.</p>
-<p>A seguir, são apresentados alguns exemplos e exercícios para a prática do Nmap:</p>
-<h3 id="para-descoberta-de-vulnerabilidades">Para descoberta de vulnerabilidades</h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span>vuln<span class="w"> </span><span class="m">192</span>.168.68.109
+<h2 id="sintaxe-basica">Sintaxe básica</h2>
+<div class="highlight"><pre><span></span><code>tcpdump<span class="w"> </span><span class="o">[</span>opções<span class="o">]</span><span class="w"> </span><span class="o">[</span>expressão<span class="o">]</span>
 </code></pre></div>
-<h3 id="encontrar-malware-ou-backdoor">Encontrar malware ou backdoor</h3>
-<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-v<span class="w"> </span>--script<span class="w"> </span>malware<span class="w"> </span><span class="m">192</span>.168.68.109
-</code></pre></div>
+<p>Opções mais comuns:  </p>
+<p>-i <interface> → Escolhe a interface de rede (ex.: eth0, wlan0).  </p>
+<p>-n → Não converte endereços e portas para nomes.  </p>
+<p>-p → Não ativa o modo promíscuo (captura apenas pacotes destinados à interface).  </p>
+<p>-v, -vv → Saída detalhada (campos adicionais dos pacotes).  </p>
+<p>-w <arquivo> → Salva a captura em arquivo .pcap.  </p>
+<p>-r <arquivo> → Lê pacotes de um arquivo .pcap.  </p>
 <hr />
-<h2 id="cheatsheet-nmap">Cheatsheet NMAP</h2>
-<p><img alt="nmap8" src="../../assets/images/ferramentas/Nmap-Cheat-Sheet-1.jpg" /></p>
+<h2 id="expressoes">Expressões</h2>
+<p>Existem três principais expressões do TCPDUMP: type, dir e proto.</p>
+<p>As opções do type são:<br />
+- <strong>host</strong>: indicação do host a ser identificado na captura.  <br />
+- <strong>net</strong>: indicação da rede a ser identificada na captura.<br />
+- <strong>port</strong>: indicação da porta de comunicação.  </p>
+<p>As opções do dir são:<br />
+- <strong>src</strong>: host de origem.<br />
+- <strong>dst</strong>: host de destino.<br />
+- <strong>src or dst</strong>: origem ou destino.<br />
+- <strong>src and dst</strong>: origem e destino.  </p>
+<p>A expressão proto permite a seleção dos protocolos: tcp, udp, icmp, entre outras opções tratadas pelo tcpdump.</p>
+<hr />
+<h2 id="exemplos-de-uso">Exemplos de uso</h2>
+<p>Capturar pacotes de uma interface específica
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0
+</code></pre></div>
+Capturar pacotes sem resolução de nomes
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-n
+</code></pre></div>
+Capturar tráfego ICMP (ping)
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>icmp
+</code></pre></div>
+Capturar tráfego para a porta 80 (HTTP)
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>port<span class="w"> </span><span class="m">80</span>
+</code></pre></div>
+Capturar tráfego de um host específico
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>host<span class="w"> </span><span class="m">192</span>.168.0.10
+</code></pre></div>
+Salvar captura em arquivo
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-w<span class="w"> </span>captura.pcap
+</code></pre></div>
+Ler captura salva
+<div class="highlight"><pre><span></span><code>tcpdump<span class="w"> </span>-r<span class="w"> </span>captura.pcap
+</code></pre></div></p>
+<hr />
+<h2 id="interpretando-a-saida">Interpretando a saída</h2>
+<p>Exemplo:
+<div class="highlight"><pre><span></span><code><span class="m">22</span>:01:07.710000<span class="w"> </span><span class="m">192</span>.168.0.2.1173<span class="w"> </span>&gt;<span class="w"> </span><span class="m">192</span>.168.0.30.21:<span class="w"> </span>S<span class="w"> </span><span class="m">32691180</span>:32691180<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span>win<span class="w"> </span><span class="m">512</span>
+</code></pre></div></p>
+<ul>
+<li>
+<p>22:01:07.710000 → Horário da captura (HH:MM:SS.microsegundos).  </p>
+</li>
+<li>
+<p>192.168.0.2 → IP de origem.  </p>
+</li>
+<li>
+<p>1173 → Porta de origem.  </p>
+</li>
+<li>
+<p>"&gt;" → Direção do tráfego.  </p>
+</li>
+<li>
+<p>192.168.0.30 → IP de destino.  </p>
+</li>
+<li>
+<p>21 → Porta de destino.  </p>
+</li>
+<li>
+<p>S → Flag TCP SYN (início de conexão).  </p>
+</li>
+<li>
+<p>32691180:32691180(0) → Números de sequência inicial/final e quantidade de bytes.  </p>
+</li>
+<li>
+<p>win 512 → Tamanho da janela de recepção.  </p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Dicas de uso</p>
+<p>Filtrar pacotes por protrocolo:
+<div class="highlight"><pre><span></span><code>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>tcp
+</code></pre></div>
+Filtrar pacotes destinados a uma rede inteira:
+<div class="highlight"><pre><span></span><code>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>net<span class="w"> </span><span class="m">192</span>.168.0.0/24
+</code></pre></div>
+Filtrar pacotes com origem ou destino específicos:
+<div class="highlight"><pre><span></span><code>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>src<span class="w"> </span>host<span class="w"> </span><span class="m">192</span>.168.0.10
+tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>dst<span class="w"> </span>port<span class="w"> </span><span class="m">443</span>
+</code></pre></div>
+Monitorar em tempo real com nível de detalhe:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-n<span class="w"> </span>-vv
+</code></pre></div></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Atenção</p>
+<p>O tcpdump pode capturar dados sensíveis. Use somente em redes autorizadas.</p>
+<p>Para capturar todos os pacotes possíveis, é necessário executá-lo com privilégios de administrador (sudo).</p>
+<p>Capturas longas podem gerar arquivos muito grandes.</p>
+</div>
+<hr />
+<h2 id="referencias">Referências</h2>
+<ul>
+<li>Comando<br />
+<div class="highlight"><pre><span></span><code>man<span class="w"> </span>tcpdump
+</code></pre></div></li>
+<li><a href="https://www.tcpdump.org/">Documentação oficial do tcpdump</a>  </li>
+<li><a href="https://biot.com/capstats/bpf.html">Guia de filtros BPF - tcpdump</a>  </li>
+<li><a href="https://www.wireshark.org/">Wireshark - Analisando arquivos .pcap</a></li>
+</ul>
 
 
 
