@@ -45,8 +45,13 @@ nav:
       - Roteiro 1 Port Scan: roteiros/1.portscan.md
   - Aulas:
       - Introdução: aulas/introducao.md
+      - Análise de logs e conexões: aulas/analiselogconexoes.md
   - Plano de Aula: plano/index.md
   #- Projeto: projeto/index.md
   - Ferramentas:
+      - Diagnóstico de rede: ferramentas/diagnostico.md
       - NMAP: ferramentas/nmap.md
+      - Netstat: ferramentas/netstat.md
+      - TCP dump: ferramentas/tcpdump.md
+      - Netdiscover: ferramentas/netdiscover.md
   #- Conteúdo adicional: conteudo/index.md

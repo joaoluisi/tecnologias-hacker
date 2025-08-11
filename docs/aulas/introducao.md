@@ -1,4 +1,4 @@
-# 📚 Aula Inaugural - Introdução a Tecnologias Hacker
+# Aula Inaugural - Introdução a Tecnologias Hacker
 
 
 ![aula1](../assets/images/aulas/aula%20inaugural/aula1.png)
@@ -66,7 +66,7 @@ O campo da **Segurança da Informação** é amplo e dinâmico, com diversas ár
 !!! tip "Dica para Iniciantes"
     Muitas carreiras começam em funções de **SOC Nível 1**, **analista de suporte** ou **administrador de sistemas/redes**, e evoluem para especializações de segurança à medida que o profissional ganha experiência.
 
-!!! note "Imagem do Slide"
+!!! note 
     O *Infosec Colour Wheel* apresenta uma roda de cores representando as equipes Red, Blue e Purple, mostrando como diferentes habilidades se combinam e se sobrepõem.
 
 ---
